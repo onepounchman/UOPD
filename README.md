@@ -18,7 +18,7 @@ multi-turn rollout.
 
 ## 🔥 News
 
-* [2026-09] Released the UOPD code, and trained checkpoints.
+* [2026-09] Released the UOPD code, and trained checkpoints!
 
 ## Overview
 
