@@ -1,0 +1,103 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uopd"
+version = "0.1.0"
+description = "Uncertainty-aware intervention for on-policy distillation of multi-turn agents"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12"
+]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "verl==0.7.0",
+    "ray[default]>=2.50.0",
+    "tensordict",
+    "wandb",
+    "omegaconf",
+    "sqlalchemy",
+    "psycopg2-binary",
+    "networkx",
+    "ninja",
+    "fire",
+    "flask",
+    "requests",
+    "tensorboard",
+    "openai",
+    "jsonlines",
+    "sortedcontainers",
+    "transformers>=4.51.0",
+    "datasets>=4.0.0",
+]
+
+[project.scripts]
+uopd = "scripts.run:main"
+uopd-launcher = "trinity.cli.launcher:main"
+uopd-smoke-test = "scripts.smoke_test:main"
+
+[project.optional-dependencies]
+vllm = [
+    "vllm>=0.10.2,<=0.14.1,!=0.12.0",
+    # v0.12.0 has a huge performance regression so we exclude it
+    # v0.10.2 is the most stable version, but we allow up to 0.14.1 for new features
+]
+environments = [
+    "alfworld==0.4.2", "textworld==1.7.0", "gym==0.24.0",
+    "numpy<2", "pyserini==0.17.0", "spacy>=3.7,<4", "beautifulsoup4",
+    "cleantext", "rank_bm25", "thefuzz", "gdown", "pyyaml",
+]
+dev = ["build", "black"]
+flash_attn = ["flash-attn==2.8.3"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["trinity*", "scripts*"]
+
+[tool.setuptools.package-data]
+scripts = ["*.slurm"]
+
+[tool.setuptools.data-files]
+"share/uopd" = ["LICENSE", "NOTICE", "README.md"]
+"share/uopd/assets" = ["assets/*.png", "assets/*.svg"]
+"share/uopd/configs/alfworld/1.5b" = ["configs/alfworld/1.5b/*.yaml"]
+"share/uopd/configs/alfworld/3b" = ["configs/alfworld/3b/*.yaml"]
+"share/uopd/configs/webshop/1.5b" = ["configs/webshop/1.5b/*.yaml"]
+"share/uopd/configs/webshop/3b" = ["configs/webshop/3b/*.yaml"]
+"share/uopd/data" = ["data/README.md", "data/manifest_counts.json"]
+"share/uopd/data/manifests/alfworld" = ["data/manifests/alfworld/*.jsonl"]
+"share/uopd/data/manifests/webshop" = ["data/manifests/webshop/*.jsonl"]
+"share/uopd/environments" = ["environments/*.md", "environments/*.txt", "environments/*.sh"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+    | \.git
+    | \.github
+    | \.vscode
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | build
+    | dist
+)/
+'''
+
+[tool.isort]
+known_third_party = ["wandb"]
+
+[tool.uv.extra-build-dependencies]
+flash-attn = ["torch", "numpy"]

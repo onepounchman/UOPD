@@ -1,0 +1,17 @@
+{
+  "alfworld": {
+    "train": 3553,
+    "train_expert": 3553,
+    "train_legacy": 3553,
+    "test_seen": 140,
+    "test_unseen": 134,
+    "nonempty_expert_actions": 3296
+  },
+  "webshop": {
+    "train": 6410,
+    "train_expert": 6410,
+    "test": 128,
+    "nonempty_expert_actions": 4651,
+    "test_pool": 500
+  }
+}

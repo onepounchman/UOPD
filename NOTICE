@@ -1,0 +1,12 @@
+UOPD
+
+This source distribution contains modifications of Trinity-RFT and TCOD.
+Original copyright headers and the Apache-2.0 license are retained.
+
+Trinity-RFT: https://github.com/agentscope-ai/Trinity-RFT
+TCOD: https://github.com/kokolerk/TCOD
+FTB-OPD implementation adapted from:
+https://github.com/ChenChiShui/FutureBridge-OPD
+
+ALFWorld and WebShop are installed separately and retain their own licenses.
+Model weights and environment product/game data are not distributed here.

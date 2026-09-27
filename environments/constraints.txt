@@ -1,0 +1,14 @@
+# Versions observed in the experiment environment (Python 3.10, CUDA 12.8).
+# These constrain the main stack; this is not a complete environment lock.
+torch==2.8.0
+vllm==0.10.2
+verl==0.7.0
+ray==2.54.0
+transformers==4.57.1
+datasets==4.8.5
+numpy==1.26.4
+alfworld==0.4.2
+textworld==1.7.0
+gym==0.24.0
+pyserini==0.17.0
+flash-attn==2.8.3
