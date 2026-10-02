@@ -3,6 +3,7 @@
 </p>
 
 <p align="center">
+  <a href="https://arxiv.org/abs/2609.34036" target="_blank"><img alt="arXiv paper" src="https://img.shields.io/badge/arXiv-2609.34036-b31b1b"></a>
   <a href="https://huggingface.co/collections/Wenboz/uopd-6ab8534f122ef418c3d7595e" target="_blank"><img alt="Hugging Face collection" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue"></a>
   <img alt="Python 3.10" src="https://img.shields.io/badge/Python-3.10-blue">
   <img alt="License: Apache 2.0" src="https://img.shields.io/badge/License-Apache%202.0-green">
@@ -213,4 +214,11 @@ See [NOTICE](NOTICE) and [LICENSE](LICENSE) for attribution.
 
 ## Citation
 
-The arXiv link and BibTeX entry will be added when the paper record is public.
+```bibtex
+@article{zhang2026uopd,
+  title={UOPD: Uncertainty-Aware Intervention for On-Policy Distillation of Multi-Turn Agents},
+  author={Zhang, Wenbo and Xu, Pengcheng and Du, Weizhi and Zhang, Jing and Cai, Hengrui},
+  journal={arXiv preprint arXiv:2609.34036},
+  year={2026}
+}
+```
